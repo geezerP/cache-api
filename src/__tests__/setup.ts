@@ -1,6 +1,5 @@
 const setupTest = () => {
-    return;
-  };
-  
-  export default setupTest;
-  
+  return;
+};
+
+export default setupTest;
