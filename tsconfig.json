@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "module": "commonjs",
+      "lib": ["es6", "esnext"],
+      "pretty": true,
+      "sourceMap": true,
+      "outDir": "./build",
+      "rootDir": ".",
+      "removeComments": true,
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "noUnusedLocals": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "resolveJsonModule": false,
+      "emitDecoratorMetadata": true,
+      "declaration": true,
+      "baseUrl": "./",
+      "incremental": true
+    },
+    "exclude": ["node_modules", "build"]
+  }
+  
