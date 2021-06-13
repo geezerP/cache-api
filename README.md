@@ -15,7 +15,7 @@
 
 # Postman collection
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/collections/a0d9b31b30e3f8c58984)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/a0d9b31b30e3f8c58984)
 
 ## Supported routes
 
