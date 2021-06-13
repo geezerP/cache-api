@@ -44,3 +44,7 @@ To run the test suitcase:
 
 >  yarn test
 ```
+
+### Note
+- Jest gets a timeout when connecting to the local driver. As such sometimes the tests might fail to run. 
+- You can increase the timeout as suggested by Jest ie: ```jest.settimeout(value)``` 😁😁🕺🏼🕺🏼
