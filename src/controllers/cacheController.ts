@@ -27,7 +27,7 @@ class CacheController implements IController {
   router: import("express").Router;
 
   constructor() {
-    this.path = "/cacheData";
+    this.path = "/cache";
     this.router = Router();
     this.initRoutes();
   }
