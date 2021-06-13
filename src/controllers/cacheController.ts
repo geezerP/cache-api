@@ -5,10 +5,7 @@ import { HelperMethods, cacheLimit } from "../utils";
 import { CacheData } from "../models";
 import { IController, ICacheData } from "../types";
 
-class CacheController implements IController {
-  path: string;
-  router: import("express").Router;
-  logConfiguration = {
+const logConfiguration = {
     transports: [
       // Log to the console
       new winston.transports.Console({
@@ -24,7 +21,11 @@ class CacheController implements IController {
     ],
   };
 
-  logger = winston.createLogger(this.logConfiguration);
+const logger = winston.createLogger(logConfiguration);
+class CacheController implements IController {
+  path: string;
+  router: import("express").Router;
+
   constructor() {
     this.path = "/cacheData";
     this.router = Router();
@@ -83,8 +84,8 @@ class CacheController implements IController {
     });
 
     if (!cacheEntry) {
-      this.logger.warn("Cache miss");
-      this.logger.error("Cache miss");
+      logger.warn("Cache miss");
+      logger.error("Cache miss");
       const randStr = HelperMethods.generateRandomString();
       const result = await cacheLimit(key, randStr);
       if (!result) {
@@ -102,8 +103,8 @@ class CacheController implements IController {
         data: randStr,
       });
     } else {
-      this.logger.warn("Cache hit");
-      this.logger.error("Cache hit");
+     logger.warn("Cache hit");
+     logger.error("Cache hit");
       await cacheEntry.updateOne({
         validTo: HelperMethods.generateTTL(),
       });
