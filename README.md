@@ -1,4 +1,7 @@
 # cache-api
+
+This Project has been implemented with the ```singleton design Pattern``` in mind. 
+You can read more about design patterns here: (https://blog.logrocket.com/design-patterns-in-typescript-and-node-js/)
 ## Requirements
 
 - MongoDB instance
