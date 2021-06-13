@@ -20,12 +20,12 @@
 ## Supported routes
 
 - `GET` api/cache/:id 
-    - Retrieves the desired cachec entry or create a new one if not present 
+    - Retrieves the desired cache entry or creates a new one if not present 
 
 - `GET` api/cache
     - Retrieves all entries in the cache
 
-- `PUT` api/cache/:id | `{ value: 'New Value' }`
+- `POST` api/cache/:id | `{ value: 'New Value' }`
     - Replaces the value of a given entry
 
 - `DELETE` api/cache/:id
@@ -39,5 +39,5 @@ To run the test suitcase:
 
 ```bash
 
-> ```yarn test```
+>  yarn test
 ```

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Fashion Cloud Case Study",
   "main": "main.js",
-  "repository": "https://github.com/geezerP/fashion-cloud",
+  "repository": "https://github.com/geezerP/cache-api",
   "author": "Meshack Ngige Mwaura",
   "license": "MIT",
   "scripts": {
