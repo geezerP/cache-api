@@ -6,20 +6,20 @@ import { CacheData } from "../models";
 import { IController, ICacheData } from "../types";
 
 const logConfiguration = {
-    transports: [
-      // Log to the console
-      new winston.transports.Console({
-        level: "warn",
-      }),
+  transports: [
+    // Log to the console
+    new winston.transports.Console({
+      level: "warn",
+    }),
 
-      // Log to a file for future reference
-      new winston.transports.File({
-        level: "error",
-        // Create the log directory if it does not exist
-        filename: "logs/cache.log",
-      }),
-    ],
-  };
+    // Log to a file for future reference
+    new winston.transports.File({
+      level: "error",
+      // Create the log directory if it does not exist
+      filename: "logs/cache.log",
+    }),
+  ],
+};
 
 const logger = winston.createLogger(logConfiguration);
 class CacheController implements IController {
@@ -103,8 +103,8 @@ class CacheController implements IController {
         data: randStr,
       });
     } else {
-     logger.warn("Cache hit");
-     logger.error("Cache hit");
+      logger.warn("Cache hit");
+      logger.error("Cache hit");
       await cacheEntry.updateOne({
         validTo: HelperMethods.generateTTL(),
       });
