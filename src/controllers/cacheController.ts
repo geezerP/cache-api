@@ -9,20 +9,20 @@ class CacheController implements IController {
   path: string;
   router: import("express").Router;
   logConfiguration = {
-    'transports': [
-        // Log to the console
-        new winston.transports.Console({
-            level: 'warn'
-        }),
+    transports: [
+      // Log to the console
+      new winston.transports.Console({
+        level: "warn",
+      }),
 
-        // Log to a file for future reference
-        new winston.transports.File({
-            level: 'error',
-            // Create the log directory if it does not exist
-            filename: 'logs/cache.log'
-        })
-    ]
-   };
+      // Log to a file for future reference
+      new winston.transports.File({
+        level: "error",
+        // Create the log directory if it does not exist
+        filename: "logs/cache.log",
+      }),
+    ],
+  };
 
   logger = winston.createLogger(this.logConfiguration);
   constructor() {
@@ -56,7 +56,7 @@ class CacheController implements IController {
           });
 
           return newValue;
-        };
+        }
 
         return entry.get("key");
       })
@@ -66,7 +66,7 @@ class CacheController implements IController {
       data: keys,
       message: "Cached keys retrieved successfully!",
     });
-  };
+  }
 
   /**
    * GET one cache Entry from the CacheData collection if it exists.
@@ -75,7 +75,7 @@ class CacheController implements IController {
    * @param { String } Key
    * @returns { Object } key value and response message object
    */
-   async getCache(req: Request, res: Response) {
+  async getCache(req: Request, res: Response) {
     const { key } = req.params;
 
     let cacheEntry = await CacheData.findOne({
@@ -83,9 +83,8 @@ class CacheController implements IController {
     });
 
     if (!cacheEntry) {
-
-      this.logger.warn('Cache miss');
-      this.logger.error('Cache miss');
+      this.logger.warn("Cache miss");
+      this.logger.error("Cache miss");
       const randStr = HelperMethods.generateRandomString();
       const result = await cacheLimit(key, randStr);
       if (!result) {
@@ -103,8 +102,8 @@ class CacheController implements IController {
         data: randStr,
       });
     } else {
-      this.logger.warn('Cache hit');
-      this.logger.error('Cache hit');
+      this.logger.warn("Cache hit");
+      this.logger.error("Cache hit");
       await cacheEntry.updateOne({
         validTo: HelperMethods.generateTTL(),
       });
@@ -113,8 +112,8 @@ class CacheController implements IController {
         message: "Chache retrived successfully!",
         data: cacheEntry.get("value"),
       });
-    };
-  };
+    }
+  }
 
   /**
    * POST || UPDATE cache value entry on the CacheData collection if the key exists.
@@ -123,7 +122,7 @@ class CacheController implements IController {
    * @param { string } value
    * @returns { Object } response Message
    */
-   async createOrUpdateCache(req: Request, res: Response) {
+  async createOrUpdateCache(req: Request, res: Response) {
     const { key } = req.params;
     const { value } = req.body;
 
